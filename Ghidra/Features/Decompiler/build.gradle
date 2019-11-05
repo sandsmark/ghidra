@@ -410,7 +410,7 @@ model {
 				b.cppCompiler.args "-O2"			// for DEBUG, comment this line out
 				// b.cppCompiler.args "-g"			// for DEBUG, uncomment	this line
 				b.cppCompiler.args "-Wno-sign-compare"
-				b.linker.args "-fsanitize=safe-stack"
+				b.linker.args "-fstack-protector" // Stack canary
 				b.linker.args "-Wl,-z,relro"        // Mark sections as RO, to protect against GOT overwrites
 				b.linker.args "-Wl,-z,now"          // Resolve all symbols at load time, avoids some GOT attacks
 				b.linker.args "-fPIE"     // ASLR
